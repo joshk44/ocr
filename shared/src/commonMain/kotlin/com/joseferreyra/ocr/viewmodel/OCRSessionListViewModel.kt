@@ -16,9 +16,9 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-class OCRSessionListViewModel (
+class OCRSessionListViewModel(
     private val repository: OCRSessionRepository
-): ViewModel() {
+) : ViewModel() {
 
     val ocrSessionList: StateFlow<SessionListUIState> =
         repository
@@ -52,7 +52,6 @@ class OCRSessionListViewModel (
                 set(APP_CONTAINER_KEY, appContainer)
             }
     }
-
 
 
 }

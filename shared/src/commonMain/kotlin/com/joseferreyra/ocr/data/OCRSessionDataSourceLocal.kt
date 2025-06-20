@@ -2,7 +2,7 @@ package com.joseferreyra.ocr_kmm.data
 
 class OCRSessionDataSourceLocal(
     database: com.joseferreyra.ocr_kmm.database.OCRDatabase
-): OCRSessionDataSource {
+) : OCRSessionDataSource {
 
     private val ocrSessionDao = database.ocrSessionDao()
 

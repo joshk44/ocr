@@ -7,7 +7,8 @@ import kotlinx.coroutines.launch
 
 class OCRSessionRepository(
     private val ocrSessionDataSource: OCRSessionDataSource,
-    private val scope: CoroutineScope) {
+    private val scope: CoroutineScope
+) {
 
     fun addSession(ocrSession: OCRSession) {
         scope.launch {

@@ -1,10 +1,12 @@
 import SwiftUI
-
+import shared
 @main
 struct iOSApp: App {
-	var body: some Scene {
-		WindowGroup {
-			ContentView()
-		}
-	}
+    let appContainer = AppContainer(factory: Factory())
+    var body: some Scene {
+        WindowGroup {
+            let iosViewModelOwner = IOSViewModelOwner(appContainer: appContainer)
+            ContentView(mainViewModel: iosViewModelOwner.mainViewModel)
+        }
+    }
 }

@@ -6,8 +6,8 @@ import com.joseferreyra.ocr_kmm.ocr.OCRProcessor
 class ProcessOCRImage(
     private val ocrProcessor: OCRProcessor
 ) {
-    suspend operator fun invoke (
-        image:ByteArray
+    suspend operator fun invoke(
+        image: ByteArray
     ): Resource<List<String>> {
         try {
             val result = ocrProcessor.processImage(image)

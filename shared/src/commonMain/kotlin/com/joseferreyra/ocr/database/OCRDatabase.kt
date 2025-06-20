@@ -1,18 +1,18 @@
 package com.joseferreyra.ocr_kmm.database
 
 import androidx.room.ConstructedBy
-import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.RoomDatabaseConstructor
 
 
-@Database (
+@Database(
     entities = [OCRSession::class],
     version = 1,
-    exportSchema = false)
+    exportSchema = false
+)
 @ConstructedBy(AppDatabaseConstructor::class)
-abstract class OCRDatabase: RoomDatabase() {
+abstract class OCRDatabase : RoomDatabase() {
 
     abstract fun ocrSessionDao(): OCRSessionDao
 

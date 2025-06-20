@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
+    alias(libs.plugins.skie)
 }
 
 kotlin {
@@ -17,7 +18,7 @@ kotlin {
             }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -35,6 +36,8 @@ kotlin {
             implementation(libs.sqlite.bundled)
             implementation(libs.kotlinx.coroutines.core)
             implementation(libs.androidx.lifecycle.viewmodel)
+            implementation(libs.skie.annotations)
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -63,4 +66,12 @@ dependencies {
 
 room {
     schemaDirectory("$projectDir/schemas")
+}
+
+
+skie {
+    features {
+        // https://skie.touchlab.co/features/flows-in-swiftui
+        enableSwiftUIObservingPreview = true
+    }
 }
