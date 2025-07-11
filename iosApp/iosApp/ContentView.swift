@@ -19,8 +19,7 @@ struct ContentView: View {
                     Tab.init ("Home",systemImage: "house.fill") {
                         ZStack {
                             VStack{
-                                Text("About Screen")
-                                    .padding()
+                                HomeView()
                             }.background(
                                 Image("Image")
                                     .scaledToFill()
@@ -54,11 +53,11 @@ struct ContentView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContentView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}
 
 
 
