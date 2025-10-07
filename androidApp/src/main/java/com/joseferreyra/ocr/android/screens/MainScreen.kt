@@ -29,7 +29,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainView() {
+fun MainView(onNavigateToScanResult: (String) -> Unit) {
     var selectedItem by remember { mutableStateOf(0) }
     val items = listOf(
         NavigationItem("Home", Icons.Default.Home),
@@ -51,7 +51,7 @@ fun MainView() {
                     )
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    containerColor = MaterialTheme.colorScheme.secondary,
                     titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
                 ),
                 navigationIcon = {
@@ -83,10 +83,10 @@ fun MainView() {
                 .padding(innerPadding)
         ) {
             when (selectedItem) {
-                0 -> HomeScreen()
+                0 -> HomeScreen(onNavigateToScanResult)
                 1 -> SessionsScreen()
                 2 -> AboutScreen()
-                else -> HomeScreen()
+                else -> HomeScreen(onNavigateToScanResult)
             }
         }
     }

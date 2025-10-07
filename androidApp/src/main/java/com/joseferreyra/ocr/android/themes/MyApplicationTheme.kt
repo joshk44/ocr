@@ -1,4 +1,4 @@
-package com.joseferreyra.ocr.android
+package com.joseferreyra.ocr.android.themes
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -28,9 +28,9 @@ fun MyApplicationTheme(
         )
     } else {
         lightColorScheme(
-            primary = Color(0xFF6200EE),
-            secondary = Color(0xFF03DAC5),
-            tertiary = Color(0xFF3700B3)
+            primary = Color(0xFF16EF97),
+            secondary = Color(0xFF14A0FF),
+            tertiary = Color(0x941F6FFF)
         )
     }
     val typography = Typography(

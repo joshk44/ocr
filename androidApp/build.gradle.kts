@@ -2,11 +2,12 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlinxSerialization)
 }
 
 android {
     namespace = "com.joseferreyra.ocr.android"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "com.joseferreyra.ocr.android"
         minSdk = 28
@@ -42,7 +43,8 @@ dependencies {
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.navigation3.ui.android)
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-
+    implementation(libs.mlKit)
 }

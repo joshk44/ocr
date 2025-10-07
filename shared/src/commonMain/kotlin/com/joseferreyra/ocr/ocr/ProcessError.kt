@@ -20,6 +20,6 @@ enum class ProcessError {
 
 class OCRProcessException(val error: ProcessError) : Exception(error.toString()) {
     override fun toString(): String {
-        return "OCRProcessException: ${error.toString()}"
+        return "OCRProcessException: $error"
     }
 }

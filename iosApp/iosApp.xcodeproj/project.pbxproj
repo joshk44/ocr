@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		058557BB273AAA24004C7B11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557BA273AAA24004C7B11 /* Assets.xcassets */; };
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
+		551281A92E459D7C0046AD34 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551281A82E459D740046AD34 /* CameraView.swift */; };
+		551281AC2E459DA70046AD34 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551281AB2E459DA70046AD34 /* HomeView.swift */; };
 		551FF3832E0D850900204034 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 551FF3822E0D850900204034 /* Launch Screen.storyboard */; };
 		5522A74A2E01943E00930BA5 /* OCRList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5522A7492E01943B00930BA5 /* OCRList.swift */; };
 		552C35BD2DFC676300D4827A /* 465549.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 552C35BC2DFC676300D4827A /* 465549.jpg */; };
@@ -34,6 +36,8 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		551281A82E459D740046AD34 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		551281AB2E459DA70046AD34 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		551FF3822E0D850900204034 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		5522A7492E01943B00930BA5 /* OCRList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRList.swift; sourceTree = "<group>"; };
 		552C35BC2DFC676300D4827A /* 465549.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 465549.jpg; sourceTree = "<group>"; };
@@ -42,6 +46,10 @@
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		551281A42E4597290046AD34 /* extension */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = extension; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7555FF78242A565900829871 /* Frameworks */ = {
@@ -65,6 +73,7 @@
 		551FF37D2E0D84CB00204034 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				551281A42E4597290046AD34 /* extension */,
 				551FF37F2E0D84E900204034 /* launcher */,
 				551FF37E2E0D84D400204034 /* screens */,
 			);
@@ -74,6 +83,9 @@
 		551FF37E2E0D84D400204034 /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				551281AB2E459DA70046AD34 /* HomeView.swift */,
+				551281A82E459D740046AD34 /* CameraView.swift */,
+				5522A7492E01943B00930BA5 /* OCRList.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -108,7 +120,6 @@
 			children = (
 				552C35BC2DFC676300D4827A /* 465549.jpg */,
 				551FF37D2E0D84CB00204034 /* presentation */,
-				5522A7492E01943B00930BA5 /* OCRList.swift */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -142,6 +153,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				551281A42E4597290046AD34 /* extension */,
 			);
 			name = iosApp;
 			productName = iosApp;
@@ -224,6 +238,8 @@
 				5522A74A2E01943E00930BA5 /* OCRList.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				551281AC2E459DA70046AD34 /* HomeView.swift in Sources */,
+				551281A92E459D7C0046AD34 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +283,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -328,6 +345,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -356,6 +374,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = A942XC66A6;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
@@ -391,6 +410,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = A942XC66A6;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",

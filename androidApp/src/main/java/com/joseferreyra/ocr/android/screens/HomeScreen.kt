@@ -1,41 +1,34 @@
 package com.joseferreyra.ocr.android.screens
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.provider.MediaStore
-import android.util.Log
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.joseferreyra.ocr.android.di.App
+import com.joseferreyra.ocr.android.parseOCR
 import com.joseferreyra.ocr.viewmodel.OCRSessionListViewModel
-import com.joseferreyra.ocr_kmm.database.OCRSession
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(onNavigateToScanResult: (String) -> Unit) {
     Surface(modifier = Modifier.fillMaxSize()) {
 
         val app = LocalContext.current.applicationContext as App
@@ -48,8 +41,8 @@ fun HomeScreen() {
             extras = extras,
         )
 
-
         val context = LocalContext.current
+        val photoURI = remember { mutableStateOf<Uri?>(null) }
 
         val hasPermission = remember {
             mutableStateOf(
@@ -65,33 +58,58 @@ fun HomeScreen() {
         ) { isGranted ->
             hasPermission.value = isGranted
             if (isGranted) {
-                // Launch camera if permission is granted
-                try {
-                    val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                    context.startActivity(intent)
-                } catch (e: Exception) {
-                    Log.e("CameraError", "Error launching camera: ${e.message}", e)
-                    Toast.makeText(context, "Error launching camera: ${e.message}", Toast.LENGTH_LONG).show()
-                }
+                Toast.makeText(context, "Camera permission granted", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(context, "Camera permission is required", Toast.LENGTH_LONG).show()
             }
         }
 
+        fun createImageFile(): File {
+            val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+            val imageFileName = "JPEG_${timeStamp}_"
+
+            // Use the internal cache directory to avoid permission issues
+            val storageDir = File(context.cacheDir, "camera_photos")
+            if (!storageDir.exists()) {
+                storageDir.mkdirs()
+            }
+
+            return File.createTempFile(
+                imageFileName,
+                ".jpg",
+                storageDir
+            )
+        }
+
         val cameraLauncher = rememberLauncherForActivityResult(
-            ActivityResultContracts.StartActivityForResult()
-        ) { result ->
-            // Handle the camera result here
-            Log.d("CameraResult", "Received result: ${result.resultCode}")
-            if (result.resultCode == android.app.Activity.RESULT_OK) {
-                val imageBitmap = result.data?.extras?.get("data")
-                if (imageBitmap != null) {
-                    Log.d("CameraResult", "Image captured successfully")
-                    Toast.makeText(context, "Image captured successfully", Toast.LENGTH_SHORT).show()
-                    // Aquí podrías procesar la imagen para OCR
+            ActivityResultContracts.TakePicture()
+        ) { success ->
+            if (success) {
+                photoURI.value?.let { uri ->
+                    try {
+                        val inputStream = context.contentResolver.openInputStream(uri)
+                        val bitmap = BitmapFactory.decodeStream(inputStream)
+                        inputStream?.close()
+
+                        if (bitmap != null) {
+                            // Image captured successfully at full size
+                            parseOCR(bitmap ,
+                                onSuccess = { resultText ->
+                                    onNavigateToScanResult(resultText)
+                                },
+                                onFailure = { errorMessage ->
+                                    Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
+                                }
+                            )
+                        } else {
+                            Toast.makeText(context, "Error processing the image", Toast.LENGTH_SHORT).show()
+                        }
+                    } catch (e: Exception) {
+                        Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+                    }
                 }
             } else {
-                Log.d("CameraResult", "Camera was cancelled or failed")
+                Toast.makeText(context, "Camera permission is required", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -103,10 +121,19 @@ fun HomeScreen() {
                 onClick = {
                     if (hasPermission.value) {
                         try {
-                            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                            cameraLauncher.launch(intent)
+                            // Create a temporary file to save the photo
+                            val photoFile = createImageFile()
+                            // Create the URI for the file using FileProvider
+                            val uri = FileProvider.getUriForFile(
+                                context,
+                                "${context.packageName}.fileprovider",
+                                photoFile
+                            )
+                            // Save the URI to use it later
+                            photoURI.value = uri
+                            // Launch the camera with the URI to save the full-size image
+                            cameraLauncher.launch(uri)
                         } catch (e: Exception) {
-                            Log.e("CameraError", "Error launching camera: ${e.message}", e)
                             Toast.makeText(context, "Error launching camera: ${e.message}", Toast.LENGTH_LONG).show()
                         }
                     } else {
@@ -129,13 +156,5 @@ fun HomeScreen() {
                 )
             }
         }
-        initializeDatabase(viewModel)
     }
-}
-
-fun initializeDatabase(viewModel: OCRSessionListViewModel) {
-    viewModel.addSession(OCRSession(0, System.currentTimeMillis(), "Session 1"))
-    viewModel.addSession(OCRSession(0, System.currentTimeMillis(), "Session 2"))
-    viewModel.addSession(OCRSession(0, System.currentTimeMillis(), "Session 3"))
-    viewModel.addSession(OCRSession(0, System.currentTimeMillis(), "Session 4"))
 }

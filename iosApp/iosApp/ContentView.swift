@@ -14,30 +14,19 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            if #available(iOS 26.0, *) {
                 TabView {
                     Tab.init ("Home",systemImage: "house.fill") {
                         ZStack {
                             VStack{
                                 HomeView()
-                            }.background(
-                                Image("Image")
-                                    .scaledToFill()
-                                    .ignoresSafeArea()
-                                    .backgroundExtensionEffect()
-                                    .blur(radius: 10.0))
+                            }
                         }
                     }
                     Tab.init ("History", systemImage: "suit.heart.fill"){
                         ZStack {
                             VStack{
                                 OCRList(mainViewModel: mainViewModel)
-                            }.background(
-                                Image("Image")
-                                    .scaledToFill()
-                                    .ignoresSafeArea()
-                                    .backgroundExtensionEffect()
-                                    .blur(radius: 10.0))
+                            }
                         }
                     }
                     
@@ -46,9 +35,8 @@ struct ContentView: View {
                             .padding()
                         
                     }
-                }.tabBarMinimizeBehavior(.onScrollDown)
-            } else {
-            }
+                }.tabBarMinimizeOnScrollIfAvailable()
+
         }
     }
 }
@@ -62,8 +50,8 @@ struct ContentView_Previews: PreviewProvider {
 
 
 fileprivate func initializeDatabase(_ mainViewModel: OCRSessionListViewModel) {
-    //    mainViewModel.addSession(ocrSession: OCRSession(id: 0, dateTime: 123, values: "Session 1" ))
-    //    mainViewModel.addSession(ocrSession: OCRSession(id: 0, dateTime: 123, values: "Session 2" ))
+        mainViewModel.addSession(ocrSession: OCRSession(id: 0, dateTime: 123, values: "Session 1" ))
+        mainViewModel.addSession(ocrSession: OCRSession(id: 0, dateTime: 123, values: "Session 2" ))
     //    mainViewModel.addSession(ocrSession: OCRSession(id: 0, dateTime: 123, values: "Session 3" ))
     //    mainViewModel.addSession(ocrSession: OCRSession(id: 0, dateTime: 123, values: "Session 4" ))
     //    mainViewModel.addSession(ocrSession: OCRSession(id: 0, dateTime: 123, values: "Session 5" ))
