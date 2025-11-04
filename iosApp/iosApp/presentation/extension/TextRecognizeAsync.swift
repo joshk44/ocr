@@ -1,10 +1,3 @@
-//
-//  TextRecognizeAsync.swift
-//  iosApp
-//
-//  Created by Jose Ferreyra on 8/14/25.
-//  Copyright © 2025 orgName. All rights reserved.
-//
 
 import UIKit
 @preconcurrency import Vision

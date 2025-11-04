@@ -1,0 +1,63 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@" : {
+
+    },
+    "%lld" : {
+
+    },
+    "About" : {
+
+    },
+    "AI Chat" : {
+
+    },
+    "Create Story" : {
+
+    },
+    "Generating story..." : {
+
+    },
+    "History" : {
+
+    },
+    "Home" : {
+
+    },
+    "Launch Camera" : {
+
+    },
+    "Let's talk" : {
+
+    },
+    "No story available. Try again." : {
+
+    },
+    "OCR Processing..." : {
+
+    },
+    "OCR Results" : {
+
+    },
+    "OCR Scanner" : {
+
+    },
+    "Reset" : {
+
+    },
+    "Scan Again" : {
+
+    },
+    "Send" : {
+
+    },
+    "Story" : {
+
+    }
+  },
+  "version" : "1.1"
+}
