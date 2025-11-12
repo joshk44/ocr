@@ -29,8 +29,11 @@ struct ContentView: View {
                 }
                 
                 Tab.init( "About", systemImage: "burn"){
-                    Text( "About")
-                        .padding()
+                   ZStack {
+                        VStack{
+                            Sandbox()
+                        }
+                    }
                 }
                 
                 Tab("", systemImage: "sparkles", role: .search ) {

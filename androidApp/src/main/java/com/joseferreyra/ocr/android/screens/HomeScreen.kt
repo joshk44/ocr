@@ -7,11 +7,22 @@ import android.net.Uri
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -93,7 +104,8 @@ fun HomeScreen(onNavigateToScanResult: (String) -> Unit) {
 
                         if (bitmap != null) {
                             // Image captured successfully at full size
-                            parseOCR(bitmap ,
+                            parseOCR(
+                                bitmap,
                                 onSuccess = { resultText ->
                                     onNavigateToScanResult(resultText)
                                 },
@@ -102,7 +114,11 @@ fun HomeScreen(onNavigateToScanResult: (String) -> Unit) {
                                 }
                             )
                         } else {
-                            Toast.makeText(context, "Error processing the image", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                context,
+                                "Error processing the image",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     } catch (e: Exception) {
                         Toast.makeText(context, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -134,7 +150,11 @@ fun HomeScreen(onNavigateToScanResult: (String) -> Unit) {
                             // Launch the camera with the URI to save the full-size image
                             cameraLauncher.launch(uri)
                         } catch (e: Exception) {
-                            Toast.makeText(context, "Error launching camera: ${e.message}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(
+                                context,
+                                "Error launching camera: ${e.message}",
+                                Toast.LENGTH_LONG
+                            ).show()
                         }
                     } else {
                         permissionLauncher.launch(Manifest.permission.CAMERA)

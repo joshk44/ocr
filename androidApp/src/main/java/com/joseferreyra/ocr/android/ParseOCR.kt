@@ -8,11 +8,13 @@ import androidx.compose.ui.graphics.asAndroidBitmap
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizer
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 
 fun parseOCR(bitmap: Bitmap,
              onSuccess: (String) -> Unit,
              onFailure: (String) -> Unit): Unit {
-    val textRecognizer = TextRecognition.getClient()
+    val textRecognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS)
+
 
     textRecognizer.process(InputImage.fromBitmap(bitmap, 0))
         .addOnSuccessListener { visionText ->

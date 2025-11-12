@@ -47,4 +47,5 @@ dependencies {
     debugImplementation(libs.compose.ui.tooling)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.mlKit)
+    implementation(libs.android.material.icons)
 }
