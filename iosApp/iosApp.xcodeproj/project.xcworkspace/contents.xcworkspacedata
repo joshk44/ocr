@@ -5,7 +5,7 @@
       location = "self:">
    </FileRef>
    <FileRef
-      location = "group:BottomSheetStory.swift">
+      location = "group:.swift">
    </FileRef>
    <FileRef
       location = "group:Localizable.strings (English).strings">

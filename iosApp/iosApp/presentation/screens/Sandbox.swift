@@ -120,10 +120,10 @@ struct Sandbox: View {
 }
 
 
-#Preview {
+#Preview("Español") {
     Sandbox()
+        .environment(\.locale, Locale(identifier: "es"))
 }
-
 
 struct UIDto: Equatable, Hashable, Codable {
     let altitude: Double
