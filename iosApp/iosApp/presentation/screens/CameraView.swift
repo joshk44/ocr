@@ -3,7 +3,6 @@ import SwiftUI
 import shared
 import Foundation
 
-// Camera functionality using UIViewControllerRepresentable
 struct CameraView: UIViewControllerRepresentable {
     @Binding var isShown: Bool
     @Binding var image: UIImage?

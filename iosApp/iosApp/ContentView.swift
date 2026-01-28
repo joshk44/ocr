@@ -13,14 +13,14 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             TabView {
-                Tab.init ( "Home",systemImage: "house.fill") {
+                Tab("Home", systemImage: "house.fill") {
                     ZStack {
                         VStack{
                             HomeView(mainViewModel: mainViewModel)
                         }
                     }
                 }
-                Tab.init ("History", systemImage: "suit.heart.fill"){
+                Tab("History", systemImage: "suit.heart.fill") {
                     ZStack {
                         VStack{
                             OCRList(mainViewModel: mainViewModel)
@@ -28,7 +28,7 @@ struct ContentView: View {
                     }
                 }
                 
-                Tab.init( "About", systemImage: "burn"){
+                Tab("Sandbox", systemImage: "burn") {
                    ZStack {
                         VStack{
                             Sandbox()
@@ -36,8 +36,8 @@ struct ContentView: View {
                     }
                 }
                 
-                Tab("", systemImage: "sparkles", role: .search ) {
-                    aiChat()
+                Tab("", systemImage: "sparkles", role: .search) {
+                    ChatBotAI()
                 }
             }.tabBarMinimizeOnScrollIfAvailable()
         }
