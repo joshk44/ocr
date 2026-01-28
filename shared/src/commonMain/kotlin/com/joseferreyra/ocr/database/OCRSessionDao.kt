@@ -1,9 +1,10 @@
-package com.joseferreyra.ocr_kmm.database
+package com.joseferreyra.ocr.database
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.joseferreyra.ocr.database.OCRSession
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -9,7 +9,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.joseferreyra.ocr.data.OCRSessionRepository
 import com.joseferreyra.ocr.di.AppContainer
-import com.joseferreyra.ocr_kmm.database.OCRSession
+import com.joseferreyra.ocr.database.OCRSession
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map

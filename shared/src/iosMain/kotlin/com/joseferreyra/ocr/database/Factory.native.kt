@@ -17,8 +17,8 @@ package com.joseferreyra.ocr.database
 
 import androidx.room.Room
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
-import com.joseferreyra.ocr_kmm.database.DATABASE_NAME
-import com.joseferreyra.ocr_kmm.database.OCRDatabase
+import com.joseferreyra.ocr.database.DATABASE_NAME
+import com.joseferreyra.ocr.database.OCRDatabase
 import kotlinx.cinterop.ExperimentalForeignApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO

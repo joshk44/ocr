@@ -1,4 +1,4 @@
-package com.joseferreyra.ocr_kmm.domain
+package com.joseferreyra.ocr.domain
 
 data class RecognitionSession(
     val time: Long,

@@ -1,7 +1,7 @@
-package com.joseferreyra.ocr_kmm.interactor
+package com.joseferreyra.ocr.interactor
 
-import com.joseferreyra.ocr_kmm.domain.Resource
-import com.joseferreyra.ocr_kmm.ocr.OCRProcessor
+import com.joseferreyra.ocr.domain.Resource
+import com.joseferreyra.ocr.ocr.OCRProcessor
 
 class ProcessOCRImage(
     private val ocrProcessor: OCRProcessor

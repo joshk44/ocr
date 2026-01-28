@@ -1,4 +1,4 @@
-package com.joseferreyra.ocr_kmm.ocr
+package com.joseferreyra.ocr.ocr
 
 expect class OCRProcessorFactory {
     fun create(): OCRProcessor

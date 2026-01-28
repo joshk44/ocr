@@ -18,8 +18,8 @@ package com.joseferreyra.ocr.database
 import android.app.Application
 import androidx.room.Room
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
-import com.joseferreyra.ocr_kmm.database.DATABASE_NAME
-import com.joseferreyra.ocr_kmm.database.OCRDatabase
+import com.joseferreyra.ocr.database.DATABASE_NAME
+import com.joseferreyra.ocr.database.OCRDatabase
 import kotlinx.coroutines.Dispatchers
 
 actual class Factory(

@@ -17,7 +17,7 @@ package com.joseferreyra.ocr.di
 
 import com.joseferreyra.ocr.data.OCRSessionRepository
 import com.joseferreyra.ocr.database.Factory
-import com.joseferreyra.ocr_kmm.data.OCRSessionDataSourceLocal
+import com.joseferreyra.ocr.data.OCRSessionDataSourceLocal
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

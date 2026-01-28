@@ -1,7 +1,7 @@
 package com.joseferreyra.ocr.data
 
-import com.joseferreyra.ocr_kmm.data.OCRSessionDataSource
-import com.joseferreyra.ocr_kmm.database.OCRSession
+import com.joseferreyra.ocr.data.OCRSessionDataSource
+import com.joseferreyra.ocr.database.OCRSession
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

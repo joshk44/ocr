@@ -38,7 +38,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.joseferreyra.ocr.android.di.App
 import com.joseferreyra.ocr.viewmodel.OCRSessionListViewModel
-import com.joseferreyra.ocr_kmm.database.OCRSession
+import com.joseferreyra.ocr.database.OCRSession
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

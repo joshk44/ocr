@@ -1,4 +1,4 @@
-package com.joseferreyra.ocr_kmm.presentation
+package com.joseferreyra.ocr.presentation
 
 data class OCRScan(
     val date: String,

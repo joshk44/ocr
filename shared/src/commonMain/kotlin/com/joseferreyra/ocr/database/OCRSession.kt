@@ -1,4 +1,4 @@
-package com.joseferreyra.ocr_kmm.database
+package com.joseferreyra.ocr.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

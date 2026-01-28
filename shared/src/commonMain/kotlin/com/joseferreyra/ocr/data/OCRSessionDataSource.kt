@@ -1,6 +1,6 @@
-package com.joseferreyra.ocr_kmm.data
+package com.joseferreyra.ocr.data
 
-import com.joseferreyra.ocr_kmm.database.OCRSession
+import com.joseferreyra.ocr.database.OCRSession
 import kotlinx.coroutines.flow.Flow
 
 interface OCRSessionDataSource {

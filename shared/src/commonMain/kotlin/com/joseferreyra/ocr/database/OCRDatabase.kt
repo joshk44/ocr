@@ -1,9 +1,10 @@
-package com.joseferreyra.ocr_kmm.database
+package com.joseferreyra.ocr.database
 
 import androidx.room.ConstructedBy
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.RoomDatabaseConstructor
+import com.joseferreyra.ocr.database.OCRSession
 
 
 @Database(
