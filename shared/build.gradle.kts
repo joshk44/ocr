@@ -1,8 +1,8 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
     alias(libs.plugins.skie)
@@ -47,7 +47,7 @@ kotlin {
 
 android {
     namespace = "com.joseferreyra.ocr"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 28
     }

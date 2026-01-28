@@ -12,7 +12,7 @@
         android:icon="@mipmap/ic_launcher"
         android:theme="@style/AppTheme"
         android:label="@string/app_name"
-        android:name=".di.App">
+        android:name="com.joseferreyra.ocr.android.di.App">
         <activity
             android:name=".MainActivity"
             android:exported="true">

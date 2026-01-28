@@ -1,19 +1,20 @@
 [versions]
-agp = "8.13.0"
-kotlin = "2.2.10"
-compose = "1.9.4"
+agp = "9.0.0"
+kotlin = "2.3.0"
+compose = "1.10.1"
 compose-material3 = "1.4.0"
-androidx-activityCompose = "1.11.0"
-sqlite = "2.6.1"
+androidx-activityCompose = "1.12.2"
+sqlite = "2.6.2"
 kotlinx-coroutines = "1.10.2"
-androidx-room = "2.8.3"
-ksp = "2.1.21-2.0.2"
-androidx-lifecycle = "2.9.4"
-skie = "0.10.6"
+androidx-room = "2.8.4"
+ksp = "2.3.4"
+androidx-lifecycle = "2.10.0"
+skie = "0.10.9"
 mlkit = "19.0.1"
-navigation3UiAndroid = "1.0.0-beta01"
-kotlinx-serialization = "2.2.21"
+navigation3UiAndroid = "1.0.0"
+kotlinx-serialization = "1.9.0"
 material-icons-extended = "1.7.8"
+coreKtx = "1.17.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -35,6 +36,7 @@ androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-
 skie-annotations = { module = "co.touchlab.skie:configuration-annotations", version.ref = "skie" }
 mlKit = { module = "com.google.android.gms:play-services-mlkit-text-recognition", version.ref = "mlkit" }
 androidx-navigation3-ui-android = { group = "androidx.navigation3", name = "navigation3-ui-android", version.ref = "navigation3UiAndroid" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 
 
 [plugins]
@@ -47,6 +49,5 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 room = { id = "androidx.room", version.ref = "androidx-room" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 skie = { id = "co.touchlab.skie", version.ref = "skie" }
-kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinx-serialization" }
-
-
+andoidKMmpLibrary = {id = "com.android.kotlin.multiplatform.library", version ="agp"}
+kotlinxSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
